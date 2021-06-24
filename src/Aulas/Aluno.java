@@ -1,12 +1,17 @@
 package Aulas;
 
+import java.util.Objects;
+
 public class Aluno {
 
     private String nome;
     private int numeroMatricula;
 
-    public Aluno(String noem, int numeroMatricula) {
-        this.nome = noem;
+    public Aluno(String nome, int numeroMatricula) {
+        if (nome == null){
+            throw new NullPointerException("Nome nao pode ser null");
+        }
+        this.nome = nome;
         this.numeroMatricula = numeroMatricula;
     }
 
@@ -26,4 +31,19 @@ public class Aluno {
                 ", numeroMatricula=" + numeroMatricula +
                 '}';
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+        Aluno outro =(Aluno) o ;
+        return this.nome.equals(outro.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNome(), getNumeroMatricula());
+    }
+
+
+
 }
