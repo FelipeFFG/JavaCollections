@@ -1,7 +1,9 @@
 package Aulas;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.Set;
+import java.util.Vector;
 
 public class TestaCursoComAluno {
 
@@ -49,6 +51,19 @@ public class TestaCursoComAluno {
         //obrigatoriamente o seguinte é true:
         System.out.println(a1.hashCode()==turini.hashCode());
 
+        System.out.println("------------------");
 
+        Set<Aluno> alunos = javaColecoes.getAlunos();
+        Iterator<Aluno> iterator = alunos.iterator();
+
+        while(iterator.hasNext()){
+            Aluno proximo = iterator.next();
+            System.out.println(proximo);
+        }
+        Aluno depoisDoUltimo = iterator.next();
+
+//        for (Aluno a :javaColecoes.getAlunos()){
+//            System.out.println(a);
+//        }
     }
 }

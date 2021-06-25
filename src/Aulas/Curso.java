@@ -13,7 +13,7 @@ public class Curso {
         this.instrutor = instrutor;
     }
 
-    private Set<Aluno> alunos = new HashSet<>();
+    private Set<Aluno> alunos = new LinkedHashSet<>();
 
     public Set<Aluno> getAlunos() {
         return Collections.unmodifiableSet(alunos);

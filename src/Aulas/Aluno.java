@@ -2,7 +2,7 @@ package Aulas;
 
 import java.util.Objects;
 
-public class Aluno {
+public class Aluno{
 
     private String nome;
     private int numeroMatricula;
