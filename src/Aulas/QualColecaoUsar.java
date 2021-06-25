@@ -13,7 +13,6 @@ public class QualColecaoUsar {
 
         alunos.add(1);
         alunos.size();
-        
 
     }
 

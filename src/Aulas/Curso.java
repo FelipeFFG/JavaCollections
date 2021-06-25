@@ -15,6 +15,8 @@ public class Curso {
 
     private Set<Aluno> alunos = new LinkedHashSet<>();
 
+    private Map<Integer, Aluno> matriculaParaAluno = new LinkedHashMap<>();
+
     public Set<Aluno> getAlunos() {
         return Collections.unmodifiableSet(alunos);
     }
@@ -34,10 +36,12 @@ public class Curso {
 
     public void adiciona(Aula aula){
         this.aulas.add(aula);
+
     }
 
     public void matricula(Aluno aluno){
         this.alunos.add(aluno);
+        this.matriculaParaAluno.put(aluno.getNumeroMatricula(),aluno);   //linkamos a matricula com o objeto aluno adicionamos detro do hashmap
     }
 
 
@@ -60,5 +64,12 @@ public class Curso {
 
     public boolean estaMatriculado(Aluno a1) {
        return this.alunos.contains(a1);
+    }
+
+    public Aluno buscaMatriculado(int numero) {
+        if (!matriculaParaAluno.containsKey(numero)){
+            throw new NoSuchElementException();
+        }
+        return matriculaParaAluno.get(numero);   //utiliza tabela de espalhamento.Desta forma ele consegue realizar a busca muito rapida.
     }
 }
